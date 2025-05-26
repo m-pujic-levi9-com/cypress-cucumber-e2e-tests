@@ -29,7 +29,7 @@
   "license": "ISC",
   "devDependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^22.0.1",
-    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.4",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.5",
     "@cypress/xpath": "^2.0.3",
     "@eslint/compat": "^1.2.9",
     "@eslint/eslintrc": "^3.3.1",
