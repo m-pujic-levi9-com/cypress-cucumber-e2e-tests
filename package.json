@@ -38,7 +38,7 @@
     "allure-commandline": "^2.34.1",
     "allure-cypress": "^3.3.0",
     "allure-js-commons": "^3.3.0",
-    "cypress": "^14.4.1",
+    "cypress": "^14.5.0",
     "cypress-on-fix": "^1.1.0",
     "cypress-split": "^1.24.18",
     "eslint": "^9.30.0",
