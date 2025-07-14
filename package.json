@@ -40,7 +40,7 @@
     "allure-js-commons": "^3.3.0",
     "cypress": "^14.5.1",
     "cypress-on-fix": "^1.1.0",
-    "cypress-split": "^1.24.18",
+    "cypress-split": "^1.24.20",
     "eslint": "^9.30.1",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-chai-friendly": "^1.1.0",
