@@ -163,7 +163,7 @@ jobs:
           key: modules-${{ hashFiles('package-lock.json') }}
       - name: Download Cucumber Messages
         id: download-cucumber-messages
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v5
         with:
           path: cucumber-messages
           pattern: cucumber-messages-*
@@ -182,7 +182,7 @@ jobs:
           npx cucumber-html-formatter < cucumber-messages/cucumber-edge.ndjson > cucumber-html-reports/cucumber-edge.html
       - name: Download Allure Results
         id: download-allure-results
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v5
         with:
           path: allure-results
           pattern: allure-results-*
