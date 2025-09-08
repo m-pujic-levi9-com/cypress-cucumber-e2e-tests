@@ -15,7 +15,7 @@ jobs:
         id: checkout-repository
         uses: actions/checkout@v4
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 22
       - name: Cache Node Modules
@@ -75,7 +75,7 @@ jobs:
         id: checkout-repository
         uses: actions/checkout@v4
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 22
       - name: Cache Node Modules
@@ -151,7 +151,7 @@ jobs:
         id: checkout-repository
         uses: actions/checkout@v4
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 22
       - name: Cache Node Modules
