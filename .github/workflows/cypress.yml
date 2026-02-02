@@ -15,7 +15,7 @@ jobs:
         id: checkout-repository
         uses: actions/checkout@v4
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: 22
       - name: Cache Node Modules
@@ -75,7 +75,7 @@ jobs:
         id: checkout-repository
         uses: actions/checkout@v4
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: 22
       - name: Cache Node Modules
@@ -112,7 +112,7 @@ jobs:
           CYPRESS_messagesOutput: cypress/reports/messages/cucumber-${{ matrix.browser }}-${{ matrix.splitIndex }}_${{ matrix.splitTotal }}.ndjson
       - name: Upload Allure Results
         id: upload-allure-results
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         if: always()
         with:
           name: allure-results-${{ matrix.browser }}-${{ matrix.splitIndex }}_${{ matrix.splitTotal }}
@@ -121,7 +121,7 @@ jobs:
           retention-days: 1
       - name: Upload Cucumber Messages
         id: upload-cucumber-messages
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         if: always()
         with:
           name: cucumber-messages-${{ matrix.browser }}-${{ matrix.splitIndex }}_${{ matrix.splitTotal }}
@@ -151,7 +151,7 @@ jobs:
         id: checkout-repository
         uses: actions/checkout@v4
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: 22
       - name: Cache Node Modules
@@ -163,7 +163,7 @@ jobs:
           key: modules-${{ hashFiles('package-lock.json') }}
       - name: Download Cucumber Messages
         id: download-cucumber-messages
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           path: cucumber-messages
           pattern: cucumber-messages-*
@@ -182,7 +182,7 @@ jobs:
           npx cucumber-html-formatter < cucumber-messages/cucumber-edge.ndjson > cucumber-html-reports/cucumber-edge.html
       - name: Download Allure Results
         id: download-allure-results
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           path: allure-results
           pattern: allure-results-*

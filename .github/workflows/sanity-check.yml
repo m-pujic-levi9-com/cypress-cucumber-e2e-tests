@@ -63,7 +63,7 @@ jobs:
         id: checkout-repository
         uses: actions/checkout@v4
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: 22
       - name: Cache Node Modules
@@ -86,7 +86,7 @@ jobs:
           npx allure generate --single-file cypress/reports/allure-results -o cypress/reports/allure-report-html --clean
       - name: Upload Cucumber Report
         id: upload-cucumber-report
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         if: always()
         with:
           name: cucumber-report
@@ -94,7 +94,7 @@ jobs:
           retention-days: 1
       - name: Upload Allure Report
         id: upload-allure-report
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         if: always()
         with:
           name: allure-report
