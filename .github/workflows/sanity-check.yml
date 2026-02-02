@@ -86,7 +86,7 @@ jobs:
           npx allure generate --single-file cypress/reports/allure-results -o cypress/reports/allure-report-html --clean
       - name: Upload Cucumber Report
         id: upload-cucumber-report
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         if: always()
         with:
           name: cucumber-report
@@ -94,7 +94,7 @@ jobs:
           retention-days: 1
       - name: Upload Allure Report
         id: upload-allure-report
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         if: always()
         with:
           name: allure-report
