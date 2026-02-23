@@ -112,7 +112,7 @@ jobs:
           CYPRESS_messagesOutput: cypress/reports/messages/cucumber-${{ matrix.browser }}-${{ matrix.splitIndex }}_${{ matrix.splitTotal }}.ndjson
       - name: Upload Allure Results
         id: upload-allure-results
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         if: always()
         with:
           name: allure-results-${{ matrix.browser }}-${{ matrix.splitIndex }}_${{ matrix.splitTotal }}
@@ -121,7 +121,7 @@ jobs:
           retention-days: 1
       - name: Upload Cucumber Messages
         id: upload-cucumber-messages
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         if: always()
         with:
           name: cucumber-messages-${{ matrix.browser }}-${{ matrix.splitIndex }}_${{ matrix.splitTotal }}
