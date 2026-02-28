@@ -41,7 +41,7 @@
     "cypress": "^15.9.0",
     "cypress-on-fix": "^1.1.0",
     "cypress-split": "^1.24.23",
-    "eslint": "^9.33.0",
+    "eslint": "^10.0.2",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-chai-friendly": "^1.1.0",
     "eslint-plugin-cypress": "^5.2.0",
