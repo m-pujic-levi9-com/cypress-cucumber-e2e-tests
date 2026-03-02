@@ -20,7 +20,7 @@ jobs:
           node-version: 22
       - name: Cache Node Modules
         id: cache-node-modules
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: |
             node_modules
@@ -80,7 +80,7 @@ jobs:
           node-version: 22
       - name: Cache Node Modules
         id: cache-node-modules
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: |
             node_modules
@@ -156,7 +156,7 @@ jobs:
           node-version: 22
       - name: Cache Node Modules
         id: cache-node-modules
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: |
             node_modules
