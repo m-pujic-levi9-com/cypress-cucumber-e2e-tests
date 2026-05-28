@@ -75,7 +75,7 @@ jobs:
           key: modules-${{ hashFiles('package-lock.json') }}
       - name: Cypress Run
         id: cypress-run
-        uses: cypress-io/github-action@v6
+        uses: cypress-io/github-action@v7
         with:
           env: ENV=local,TAGS=@sanity and not @bug
           browser: electron
