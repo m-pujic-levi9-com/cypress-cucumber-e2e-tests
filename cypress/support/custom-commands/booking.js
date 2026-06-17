@@ -2,6 +2,7 @@ const clickBookThisRoom = (roomName) => {
   cy.get('img')
     .filter((index, el) => el.alt.includes(roomName))
     .closest('div')
+    .parent()
     .find('button')
     .last()
     .click();
