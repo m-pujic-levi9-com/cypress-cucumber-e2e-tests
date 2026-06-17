@@ -5,35 +5,16 @@ const _import = require('eslint-plugin-import');
 
 const { fixupPluginRules } = require('@eslint/compat');
 
-const globals = require('globals');
-const js = require('@eslint/js');
-
-const { FlatCompat } = require('@eslint/eslintrc');
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-  recommendedConfig: js.configs.recommended,
-  allConfig: js.configs.all
-});
-
 module.exports = [
   {
     ignores: ['**/*.json', '**/pnpm-lock.yaml', '**/*.md', '**/.eslintignore', '**/*.feature']
   },
-  ...compat.extends('plugin:cypress/recommended', 'plugin:chai-friendly/recommended'),
+  ...Array.isArray(cypress.configs.recommended) ? cypress.configs.recommended : [cypress.configs.recommended],
+  ...Array.isArray(chaiFriendly.configs.recommendedFlat) ? chaiFriendly.configs.recommendedFlat : [chaiFriendly.configs.recommendedFlat],
   {
     plugins: {
-      cypress,
-      'chai-friendly': chaiFriendly,
       prettier,
       import: fixupPluginRules(_import)
-    },
-
-    languageOptions: {
-      globals: {
-        ...globals.browser,
-        ...cypress.environments.globals.globals
-      }
     },
 
     rules: {
@@ -71,6 +52,9 @@ module.exports = [
 
       'cypress/no-unnecessary-waiting': 'off',
       'cypress/no-pause': 'error',
+      'cypress/no-assigning-return-values': 'error',
+      'cypress/no-async-tests': 'error',
+      'cypress/unsafe-to-chain-command': 'warn',
       'prettier/prettier': ['error']
     }
   }
