@@ -61,21 +61,21 @@ jobs:
     steps:
       - name: Checkout Repository
         id: checkout-repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
           node-version: 22
       - name: Cache Node Modules
         id: cache-node-modules
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: |
             node_modules
           key: modules-${{ hashFiles('package-lock.json') }}
       - name: Cypress Run
         id: cypress-run
-        uses: cypress-io/github-action@v6
+        uses: cypress-io/github-action@v7
         with:
           env: ENV=local,TAGS=@sanity and not @bug
           browser: electron
@@ -86,7 +86,7 @@ jobs:
           npx allure generate --single-file cypress/reports/allure-results -o cypress/reports/allure-report-html --clean
       - name: Upload Cucumber Report
         id: upload-cucumber-report
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         if: always()
         with:
           name: cucumber-report
@@ -94,7 +94,7 @@ jobs:
           retention-days: 1
       - name: Upload Allure Report
         id: upload-allure-report
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         if: always()
         with:
           name: allure-report

@@ -13,14 +13,14 @@ jobs:
     steps:
       - name: Checkout Repository
         id: checkout-repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
           node-version: 22
       - name: Cache Node Modules
         id: cache-node-modules
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: |
             node_modules
@@ -73,14 +73,14 @@ jobs:
     steps:
       - name: Checkout Repository
         id: checkout-repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
           node-version: 22
       - name: Cache Node Modules
         id: cache-node-modules
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: |
             node_modules
@@ -88,7 +88,7 @@ jobs:
       - name: Cypress Run
         id: cypress-run
         if: ${{ matrix.browser != 'firefox' }}
-        uses: cypress-io/github-action@v6
+        uses: cypress-io/github-action@v7
         with:
           env: ENV=local,TAGS=not @bug
           browser: ${{ matrix.browser }}
@@ -100,7 +100,7 @@ jobs:
       - name: Cypress Run (for Firefox)
         id: cypress-run-firefox
         if: ${{ matrix.browser == 'firefox' }}
-        uses: cypress-io/github-action@v6
+        uses: cypress-io/github-action@v7
         with:
           config: video=false
           env: ENV=local,TAGS=not @bug
@@ -112,7 +112,7 @@ jobs:
           CYPRESS_messagesOutput: cypress/reports/messages/cucumber-${{ matrix.browser }}-${{ matrix.splitIndex }}_${{ matrix.splitTotal }}.ndjson
       - name: Upload Allure Results
         id: upload-allure-results
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         if: always()
         with:
           name: allure-results-${{ matrix.browser }}-${{ matrix.splitIndex }}_${{ matrix.splitTotal }}
@@ -121,7 +121,7 @@ jobs:
           retention-days: 1
       - name: Upload Cucumber Messages
         id: upload-cucumber-messages
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         if: always()
         with:
           name: cucumber-messages-${{ matrix.browser }}-${{ matrix.splitIndex }}_${{ matrix.splitTotal }}
@@ -149,21 +149,21 @@ jobs:
     steps:
       - name: Checkout Repository
         id: checkout-repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
           node-version: 22
       - name: Cache Node Modules
         id: cache-node-modules
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: |
             node_modules
           key: modules-${{ hashFiles('package-lock.json') }}
       - name: Download Cucumber Messages
         id: download-cucumber-messages
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v8
         with:
           path: cucumber-messages
           pattern: cucumber-messages-*
@@ -182,7 +182,7 @@ jobs:
           npx cucumber-html-formatter < cucumber-messages/cucumber-edge.ndjson > cucumber-html-reports/cucumber-edge.html
       - name: Download Allure Results
         id: download-allure-results
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v8
         with:
           path: allure-results
           pattern: allure-results-*
