@@ -1,10 +1,5 @@
 const clickBookThisRoom = (roomName) => {
-  cy.get('img')
-    .filter((index, el) => el.alt.includes(roomName))
-    .closest('div')
-    .find('button')
-    .last()
-    .click();
+  cy.xpath(`//div[./div/img[contains(@alt,'${roomName}')]]//button`).last().click();
 };
 
 const enterFirstName = (firstName) => {
@@ -40,7 +35,7 @@ const setBookingDates = () => {
 };
 
 const clickBook = () => {
-  cy.contains('button', 'Book').click();
+  cy.xpath('//button[text()="Book"]').click();
 };
 
 Cypress.Commands.add('bookRoom', (roomName, firstName, lastName, email, phone) => {

@@ -27,7 +27,7 @@ When('Tries to login with wrong password', () => {
 });
 
 Then('User is Logged In', () => {
-  cy.contains('a', 'Logout').should('be.visible');
+  cy.xpath('//a[text()="Logout"]').should('be.visible');
 });
 
 Then('User is redirected to Rooms Management Page', () => {

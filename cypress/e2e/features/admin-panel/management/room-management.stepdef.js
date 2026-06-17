@@ -54,11 +54,7 @@ Then(
     if (hasSafe) roomFeatures.push('Safe');
     if (hasViews) roomFeatures.push('Views');
 
-    cy.get('div[data-testid="roomlisting"]')
-      .filter((index, el) => Cypress.$(el).find(`p[id*="${roomName}"]`).length > 0)
-      .should('exist')
-      .last()
-      .as('roomRecord');
+    cy.xpath(`//div[@data-testid='roomlisting'][.//p[contains(@id,'${roomName}')]]`).should('exist').last().as('roomRecord');
     cy.get('@roomRecord').within(() => {
       cy.get('p[id*=roomName]').should('have.text', roomName);
       cy.get('p[id*=type]').should('have.text', parsedRoomType(roomType));
