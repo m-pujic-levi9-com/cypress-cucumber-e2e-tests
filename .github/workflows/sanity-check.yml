@@ -77,7 +77,7 @@ jobs:
         id: cypress-run
         uses: cypress-io/github-action@v7
         with:
-          env: ENV=local,TAGS=@sanity and not @bug
+          env: ENV=local,tags=@sanity and not @bug
           browser: electron
           command-prefix: '--'
       - name: Generate Allure Report

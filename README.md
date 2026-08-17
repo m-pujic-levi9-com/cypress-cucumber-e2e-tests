@@ -44,7 +44,7 @@ Open the terminal inside `<local_path>\cypress-cucumber-e2e-tests` and use the f
     - `kubeLocal` uses `http://kube.local` as app URL
     - `docker` uses `http://rbp-proxy` as app URL
     - `kube` uses `http://rbp-proxy.restful-booker-platform` as app URL
-  - `TAGS`, which can be any of available tags set in Cucumber features. If not set all scenarios will be executed. Tag expression is an infix boolean expression, some examples:
+  - `tags`, which can be any of available tags set in Cucumber features. If not set all scenarios will be executed. Tag expression is an infix boolean expression, some examples:
     - `@sanity` - Scenarios tagged with `@sanity` will be filtered
     - `@management and not @room-management` - Scenarios tagged with `@management` that are not also tagged with `@room-management` will be filtered
     - `@management and @room-management` - Scenarios tagged with both `@management` and `@room-management` will be filtered
@@ -56,7 +56,7 @@ Example of above commands with possible variables:
 - `npx cypress open --env ENV=local` - Open Cypress UI to execute tests against Local environment
 - `npx cypress run --env ENV=prod` - Execute All tests without opening the Cypress UI against Production environment
 - `npx cypress run --spec "**/login.feature" --env ENV=local` - Execute Login feature without opening the Cypress UI on Local environment
-- `npx cypress run --env ENV=prod,TAGS='(@booking or @contact) and (not @bug)'` - Execute tests tagged with `@booking` or `@contact` which are not also tagged with `@bug`, without opening the Cypress UI on Production environment
+- `npx cypress run --env ENV=prod,tags='(@booking or @contact) and (not @bug)'` - Execute tests tagged with `@booking` or `@contact` which are not also tagged with `@bug`, without opening the Cypress UI on Production environment
 
 Some of predefined scripts in [`package.json`](/package.json) are doing same thing as commands above:
 

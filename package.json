@@ -28,7 +28,7 @@
   "author": "Levi9",
   "license": "ISC",
   "devDependencies": {
-    "@badeball/cypress-cucumber-preprocessor": "^24.0.1",
+    "@badeball/cypress-cucumber-preprocessor": "^26.0.0",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.8",
     "@cypress/xpath": "^2.0.3",
     "@eslint/compat": "^2.1.0",
@@ -38,7 +38,7 @@
     "allure-commandline": "^2.43.0",
     "allure-cypress": "^3.10.2",
     "allure-js-commons": "^3.10.0",
-    "cypress": "^15.17.0",
+    "cypress": "^15.20.1",
     "cypress-on-fix": "^1.1.0",
     "cypress-split": "^1.25.0",
     "eslint": "^10.8.1",
