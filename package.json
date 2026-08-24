@@ -52,7 +52,7 @@
     "lint-staged": "^17.3.0",
     "prettier": "^3.9.6",
     "rimraf": "^6.1.3",
-    "uuid": "^14.0.1"
+    "uuid": "^14.0.2"
   },
   "overrides": {
     "eslint-plugin-import": {
