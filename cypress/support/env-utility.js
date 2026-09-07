@@ -7,7 +7,7 @@ const dockerUrl = 'http://rbp-proxy';
 const kubeUrl = 'http://rbp-proxy.restful-booker-platform';
 
 export function getUrl() {
-  let environment = Cypress.env('ENV');
+  let environment = Cypress.expose('ENV');
   if (environment == null) return prodUrl;
   else if (environment == 'prod') return prodUrl;
   else if (environment == 'local') return localUrl;
@@ -17,7 +17,7 @@ export function getUrl() {
 }
 
 export function getApiUrl() {
-  let environment = Cypress.env('ENV');
+  let environment = Cypress.expose('ENV');
   if (environment == null) return prodUrl;
   else if (environment == 'prod') return prodUrl;
   else if (environment == 'local') return localUrl;

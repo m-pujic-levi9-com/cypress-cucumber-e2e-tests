@@ -22,7 +22,7 @@ on:
 
 jobs:
   test:
-    name: Sanity Tests - local - electron
+    name: Sanity Tests - local - chrome
     runs-on: ubuntu-latest
     timeout-minutes: 30
     services:
@@ -65,7 +65,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v7
         with:
-          node-version: 22
+          node-version: 24
       - name: Cache Node Modules
         id: cache-node-modules
         uses: actions/cache@v6
@@ -77,8 +77,8 @@ jobs:
         id: cypress-run
         uses: cypress-io/github-action@v7
         with:
-          env: ENV=local,tags=@sanity and not @bug
-          browser: electron
+          expose: ENV=local,tags=@sanity and not @bug
+          browser: chrome
           command-prefix: '--'
       - name: Generate Allure Report
         id: generate-allure-report
