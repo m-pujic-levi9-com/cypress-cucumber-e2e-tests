@@ -21,8 +21,6 @@ async function setupNodeEvents(cypressOn, config) {
   });
   cypressSplit(on, config);
   config.defaultCommandTimeout = 4000;
-  // ENV is still passed via --env, but browser code must read it via Cypress.expose(), so bridge it here.
-  config.expose = { ...config.expose, ENV: config.env.ENV };
   // Make sure to return the config object as it might have been modified by the plugin.
   return config;
 }

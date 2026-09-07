@@ -53,12 +53,12 @@ Open the terminal inside `<local_path>\cypress-cucumber-e2e-tests` and use the f
 
 Example of above commands with possible variables:
 
-- `npx cypress open --env ENV=local` - Open Cypress UI to execute tests against Local environment
-- `npx cypress run --env ENV=prod` - Execute All tests without opening the Cypress UI against Production environment
-- `npx cypress run --spec "**/login.feature" --env ENV=local` - Execute Login feature without opening the Cypress UI on Local environment
-- `npx cypress run --env ENV=prod --expose tags='(@booking or @contact) and (not @bug)'` - Execute tests tagged with `@booking` or `@contact` which are not also tagged with `@bug`, without opening the Cypress UI on Production environment
+- `npx cypress open --expose ENV=local` - Open Cypress UI to execute tests against Local environment
+- `npx cypress run --expose ENV=prod` - Execute All tests without opening the Cypress UI against Production environment
+- `npx cypress run --spec "**/login.feature" --expose ENV=local` - Execute Login feature without opening the Cypress UI on Local environment
+- `npx cypress run --expose ENV=prod,tags='(@booking or @contact) and (not @bug)'` - Execute tests tagged with `@booking` or `@contact` which are not also tagged with `@bug`, without opening the Cypress UI on Production environment
 
-`tags` must be passed via `--expose` (not `--env`), since Cypress 16 / cucumber-preprocessor v27+ resolve plugin configuration overrides through `Cypress.expose()`.
+`ENV` and `tags` must be passed via `--expose` (not `--env`), since Cypress 16 / cucumber-preprocessor v27+ resolve plugin configuration overrides through `Cypress.expose()`, and `ENV` is read the same way in this project's own support code.
 
 Some of predefined scripts in [`package.json`](/package.json) are doing same thing as commands above:
 

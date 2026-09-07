@@ -90,8 +90,7 @@ jobs:
         if: ${{ matrix.browser != 'firefox' }}
         uses: cypress-io/github-action@v7
         with:
-          env: ENV=local
-          expose: tags=not @bug
+          expose: ENV=local,tags=not @bug
           browser: ${{ matrix.browser }}
           command-prefix: '--'
         env:
@@ -104,8 +103,7 @@ jobs:
         uses: cypress-io/github-action@v7
         with:
           config: video=false
-          env: ENV=local
-          expose: tags=not @bug
+          expose: ENV=local,tags=not @bug
           browser: ${{ matrix.browser }}
           command-prefix: '--'
         env:
