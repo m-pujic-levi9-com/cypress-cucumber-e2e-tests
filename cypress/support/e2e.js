@@ -16,6 +16,17 @@
 // Import commands.js using CommonJS syntax:
 require('./commands');
 require('@cypress/xpath');
+
+// allure-cypress@3.12.0 still stores its internal state via Cypress.env('allure'), which Cypress 16 removed.
+// Shim it until upstream fixes this: https://github.com/allure-framework/allure-js/issues/1401
+const cypressEnv = Cypress.env;
+let allureState;
+Cypress.env = (key, value) => {
+  if (key !== 'allure') return cypressEnv.call(Cypress, key, value);
+  if (value !== undefined) allureState = value;
+  return allureState;
+};
+
 require('allure-cypress');
 
 Cypress.on('uncaught:exception', (err, runnable) => {
