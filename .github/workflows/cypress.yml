@@ -34,7 +34,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        browser: [electron, chrome, firefox, edge]
+        browser: [chrome, firefox, edge]
         splitIndex: [0, 1]
         splitTotal: [2]
     services:
@@ -172,8 +172,6 @@ jobs:
         id: generate-cucumber-html-reports
         run: |
           mkdir cucumber-html-reports
-          npx cucumber-merge-messages cucumber-messages/*electron*.ndjson > cucumber-messages/cucumber-electron.ndjson
-          npx cucumber-html-formatter < cucumber-messages/cucumber-electron.ndjson > cucumber-html-reports/cucumber-electron.html
           npx cucumber-merge-messages cucumber-messages/*chrome-*.ndjson > cucumber-messages/cucumber-chrome.ndjson
           npx cucumber-html-formatter < cucumber-messages/cucumber-chrome.ndjson > cucumber-html-reports/cucumber-chrome.html
           npx cucumber-merge-messages cucumber-messages/*firefox-*.ndjson > cucumber-messages/cucumber-firefox.ndjson

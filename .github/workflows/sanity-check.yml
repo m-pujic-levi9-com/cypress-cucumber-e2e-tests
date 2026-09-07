@@ -22,7 +22,7 @@ on:
 
 jobs:
   test:
-    name: Sanity Tests - local - electron
+    name: Sanity Tests - local - chrome
     runs-on: ubuntu-latest
     timeout-minutes: 30
     services:
@@ -78,7 +78,7 @@ jobs:
         uses: cypress-io/github-action@v7
         with:
           env: ENV=local,tags=@sanity and not @bug
-          browser: electron
+          browser: chrome
           command-prefix: '--'
       - name: Generate Allure Report
         id: generate-allure-report
