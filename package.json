@@ -31,7 +31,7 @@
     "@badeball/cypress-cucumber-preprocessor": "^28.0.0",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.8",
     "@cypress/xpath": "^2.0.3",
-    "@eslint/compat": "^2.1.0",
+    "@eslint/compat": "^2.1.1",
     "@eslint/eslintrc": "^3.3.7",
     "@eslint/js": "^10.0.1",
     "@faker-js/faker": "^10.6.0",
