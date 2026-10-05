@@ -37,7 +37,7 @@
     "@faker-js/faker": "^10.6.0",
     "allure-commandline": "^2.46.1",
     "allure-cypress": "^3.12.2",
-    "allure-js-commons": "^3.12.1",
+    "allure-js-commons": "^3.13.0",
     "cypress": "^16.1.1",
     "cypress-on-fix": "^1.1.0",
     "cypress-split": "^1.25.0",
